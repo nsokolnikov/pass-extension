@@ -35,8 +35,18 @@ descriptor contents.
 
 UI:
 
-Extension contains 4 text fields and 4 checkboxes. Checkboxes stand for the 4 default character sets
-plus the custom set and fields are: Master password(obscured), domain name, salt, and custom.
+Extension contains 5 text fields and 4 checkboxes. Checkboxes stand for the 4 default character sets
+plus the custom set and fields are: Master password(obscured), domain name, salt, length, and custom.
+
+Generation:
+
+The password is generated starting with the master password. The salt and password are concatenated 
+and zero-padded to the desired length. Then, that hash is converted into base n, where n is the amount
+of unique characters to generate. All the required sets from the descriptor are concatenated into one
+array of length n. 
+Each digit of the hash is looked up in the character table and put together to form the password.
+The result is trimmed to a user-specified length and outputted. 
+
 
 
 
