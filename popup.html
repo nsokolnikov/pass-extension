@@ -18,15 +18,20 @@
     </style>
 
     <!--
-      - JavaScript and HTML must be in separate files: see our Content Security
       - Policy documentation[1] for details and explanation.
       -
       - [1]: http://developer.chrome.com/extensions/contentSecurityPolicy.html
      -->
     <script src="popup.js"></script>
+    <script src="jquery-2.1.3.js"></script>
+    
   </head>
   <body>
-  	EXAMPLE TEXT
+  	Generate a password with:
+  	<p> Uppercase: <input type="checkbox" id="upper"/> </p>
+	<p>	Lowercase: <input type="checkbox" id="lower"/> </p>
+  	<p> Numbers: <input type="checkbox" id= "number"/> </p>
+  	<p> Symbols: <input type="checkbox" id="symbol"/> </p>
   	
   </body>
 </html>
