@@ -17,7 +17,7 @@ and a descriptor describing the limitations imposed on the password.
 Implementation:
 ===============
 
-The extension itself only stores descriptors  locally, and generates a password 
+The extension itself only stores descriptors locally, and generates a password 
 from scratch every time a password is used.
 
 When a password is generated, the descriptor used to generate it is 
@@ -41,14 +41,9 @@ plus the custom set and fields are: Master password(obscured), domain name, salt
 Generation:
 
 The password is generated starting with the master password. The salt and password are concatenated 
-and zero-padded to the desired length. Then, that hash is converted into base n, where n is the amount
-of unique characters to generate. All the required sets from the descriptor are concatenated into one
-array of length n. 
+and zero-padded to the desired length. This value is hashed. Then, that hash is converted into base n, 
+where n is the amountof unique characters to generate. All the required sets from the descriptor are 
+concatenated into one array of length n. 
 Each digit of the hash is looked up in the character table and put together to form the password.
 The result is trimmed to a user-specified length and outputted. 
-
-
-
-
-
 

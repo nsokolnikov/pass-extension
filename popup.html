@@ -6,6 +6,7 @@
       body {
         min-width: 357px;
         overflow-x: hidden;
+        line-height: 150%;
       }
 
       img {
@@ -14,6 +15,18 @@
         vertical-align: middle;
         width: 75px;
         height: 75px;
+      }
+      
+      input {
+      	float: right;
+      }
+      
+      p {
+      	float:left;
+      }
+      
+      #output {
+      	float: none;
       }
     </style>
 
@@ -28,12 +41,22 @@
     
   </head>
   <body>
-  	Generate a password with:
-  	<p> Uppercase: <input type="checkbox" id="upper"/> </p>
-	<p>	Lowercase: <input type="checkbox" id="lower"/> </p>
-  	<p> Numbers: <input type="checkbox" id= "number"/> </p>
-  	<p> Symbols: <input type="checkbox" id="symbol"/> </p>
-  	
+  	<div width="500px">
+  	<p width="500px"> Master: <input type="text" id="master" /> <br />
+  	 Domain: <input type="text" id="domain"  /> <br />
+ 	 Generate a password with: <br />
+  	 Uppercase: <input type="checkbox" id="upper"/> <br />
+	 Lowercase: <input type="checkbox" id="lower"/> <br />
+  	 Numbers:   <input type="checkbox" id= "number"/> <br />
+     Symbols:   <input type="checkbox" id="symbol"/> <br />
+     Custom:     <input type="checkbox" id="custom" /><input type="text" id="customText" /><br />
+     <br />
+     <input type="text" id="output" readonly="" onclick="this.select()" /> 
+     <button type="button" onclick="DescriptorUtils.createDescriptor()"> Generate! </button>
+     Salt: &nbsp;<input type="text" size="2" id="salt" value="0"/>	
+     
+          
+    </p> </div>
   </body>
 </html>
 
