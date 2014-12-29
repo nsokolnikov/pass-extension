@@ -17,8 +17,8 @@
         height: 75px;
       }
       
-      input {
-      	float: right;
+      input[type=checkbox] {
+	     float:right;
       }
       
       p {
@@ -27,6 +27,10 @@
       
       #output {
       	float: none;
+      }
+      
+      #main {
+      	width:500px;
       }
     </style>
 
@@ -41,19 +45,21 @@
     
   </head>
   <body>
-  	<div width="500px">
-  	<p width="500px"> Master: <input type="text" id="master" /> <br />
-  	 Domain: <input type="text" id="domain"  /> <br />
+  	<div id="main">
+  	<p> Master: <input type="text" id="master" /> <br />
+  	 Domain: <input type="text" id="domain" onchange="DescriptorUtils.loadDescriptor()" /> 
+  	 Auto <input type="checkbox" id="autodomain"checked><br />
  	 Generate a password with: <br />
-  	 Uppercase: <input type="checkbox" id="upper"/> <br />
-	 Lowercase: <input type="checkbox" id="lower"/> <br />
-  	 Numbers:   <input type="checkbox" id= "number"/> <br />
+  	 Uppercase: <input type="checkbox" id="upper" checked/> <br />
+	 Lowercase: <input type="checkbox" id="lower" checked/> <br />
+  	 Numbers:   <input type="checkbox" id= "number" checked/> <br />
      Symbols:   <input type="checkbox" id="symbol"/> <br />
      Custom:     <input type="checkbox" id="custom" /><input type="text" id="customText" /><br />
      <br />
      <input type="text" id="output" readonly="" onclick="this.select()" /> 
-     <button type="button" onclick="DescriptorUtils.createDescriptor()"> Generate! </button>
-     Salt: &nbsp;<input type="text" size="2" id="salt" value="0"/>	
+     <button type="button" onclick="PassGen.generatePassword()"> Generate! </button>
+     Salt: &nbsp;<input type="text" size="2" id="salt" value="0"/>	<br />
+     Length: <input type="text" size="2" id="lenStr" value="10"/>
      
           
     </p> </div>
